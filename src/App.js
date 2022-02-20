@@ -7,7 +7,7 @@ import { WalletLink } from 'walletlink';
 import etherscan_api from 'etherscan-api';
 
 function App() {
-  const etherscan = etherscan_api.init(process.env.REACT_APP_ETHERSCAN_API_KEY);
+  const etherscan = etherscan_api.init('3W4S4QMQP57N4W83P2SP1A99Q8NNZ2SGIH');
 
   const [ isLoggedIn, setIsLoggedIn ]         = useState(false);
   const [ revokeContract, setRevokeContract ] = useState("");
@@ -22,7 +22,7 @@ function App() {
         package: WalletLink,
         options: {
           appName: 'Revoke approval - app',
-          infuraId: process.env.REACT_APP_INFURA_ID,
+          infuraId: '2085b411450b46f9a7498607d8ee9ca5',
           chainId: 1,
         },
       }
