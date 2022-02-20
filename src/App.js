@@ -6,13 +6,15 @@ import { ethers } from "ethers";
 import { WalletLink } from 'walletlink';
 import etherscan_api from 'etherscan-api';
 
+const ETHERSCAN_API_KEY = ''
+const INFURA_API_KEY    = '';
+
 function App() {
-  const etherscan = etherscan_api.init('3W4S4QMQP57N4W83P2SP1A99Q8NNZ2SGIH');
+  const etherscan = etherscan_api.init(ETHERSCAN_API_KEY);
 
   const [ isLoggedIn, setIsLoggedIn ]         = useState(false);
   const [ revokeContract, setRevokeContract ] = useState("");
   const [ revokeWallet, setRevokeWallet ]     = useState("");
-  const [ provider, setProvider ]             = useState(null);
   const [ signer, setSigner ]                 = useState(null);
   const [ address, setAddress ]               = useState(null);
 
@@ -22,7 +24,7 @@ function App() {
         package: WalletLink,
         options: {
           appName: 'Revoke approval - app',
-          infuraId: '2085b411450b46f9a7498607d8ee9ca5',
+          infuraId: INFURA_API_KEY,
           chainId: 1,
         },
       }
@@ -60,7 +62,6 @@ function App() {
 
       setIsLoggedIn(true);
       setAddress(sign_in_addr);
-      setProvider(sign_in_provider);
       setSigner(sign_in_signer)
     } catch(err) {
       console.log(err);
